@@ -1,0 +1,471 @@
+@charset "utf-8";
+body{
+    font-size: 16px;
+    color: #666;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+body.full{
+    overflow: hidden;
+}
+.cover{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    display: none;
+}
+/* 모바일 전체 메뉴 */
+.m_menu_wrap{
+    width: calc( 100% - 30px );
+    height: 100%;
+    position: fixed;
+    left: -100%;
+    top: 0;
+    background: #f6f6f6;
+    z-index: 1001;
+    overflow: auto;
+}
+.m_menu_wrap.on{left: 0;}
+.m_menu_wrap::-webkit-scrollbar{
+    display: none;
+}
+.m_menu_wrap .m_menu_top{
+    background-color: #009223;
+    padding: 20px 20px 90px 30px;
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+}
+.m_menu_wrap .m_menu_top h2{
+    float: left;
+    padding-top: 2px;
+}
+.m_menu_wrap .m_menu_top h2 img{
+    background-size: 88px 18px;
+    height: 18px;
+    width: 88px;
+
+}
+.m_menu_wrap .m_menu_top .m_util{
+    float: right;
+}
+.m_menu_wrap .m_menu_top .m_util li{
+    display: inline-block;
+
+}
+.m_menu_wrap .m_menu_top .m_util .m_menu_set{
+    width: 40px;
+    height: 40px;
+    background: url("../images/icon_setting.png") no-repeat center -8px;
+    background-size: cover;
+    text-indent: -99999px;
+    cursor: pointer;
+}
+.m_menu_wrap .m_menu_top .m_util .m_menu_close{
+    width: 27px;
+    height: 27px;
+    background: url("../images/icon_sidemenu_close_02.png") no-repeat center -1px;
+    background-size: cover;
+    text-indent: -99999px;
+    cursor: pointer;
+}
+.m_menu_wrap .m_menu_top h3{
+    clear: both;
+    color: #ffffff;
+    font-size: 19px;
+    line-height: 1.316em;
+    margin-top: 74px;
+}
+.m_menu_wrap .m_menu_top .m_menu_login{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+.m_menu_wrap .m_menu_top .m_menu_login .btn_login{
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 48px;
+    letter-spacing: -0.05em;
+    width: 48.5%;
+    height: 40px;
+    background-color: #ffc300;
+    margin-top: 26px;
+    cursor: pointer;
+}
+.m_menu_wrap .m_menu_top .m_menu_login .btn_join{
+    color: #292929;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 48px;
+    letter-spacing: -0.05em;
+    width: 48.5%;
+    height: 40px;
+    background-color: #fff;
+    margin-top: 26px;
+    cursor: pointer;
+}
+.m_menu_wrap .m_menu_middle{
+    width: 100%;
+    height: 180px;
+    background: #f6f6f6;
+    position: relative;
+}
+.m_menu_wrap .m_menu_middle .m_menu_inner{
+    width: 95%;
+    height: 200px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -45px;
+    border-radius: 26px 0;
+    padding: 25px;
+    box-sizing: border-box;
+}
+.m_menu_wrap .m_menu_middle .m_menu_inner .icon_list{
+    width: 100%;
+    text-align: center;
+}
+.m_menu_wrap .m_menu_middle .m_menu_inner .icon_list li{
+    display: inline-block;
+    width: 32.3%;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+.m_menu_wrap .m_menu_middle .m_menu_inner .icon_list li p{
+    display: block;
+    color: #292929;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 6px;
+}
+.m_menu_wrap .m_menu_bottom{
+    width: 100%;
+    height: auto;
+    background: #f6f6f6;
+    position: relative;
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list{
+    width: 95%;
+    height: auto;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -10px;
+    border-radius: 26px 0;
+    /* padding: 25px; */
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li{
+    border-bottom: 2px solid #f6f6f6;
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li:last-child{
+    border-bottom: none;
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li>a{
+    display: block;
+    line-height: 60px;
+    box-sizing: border-box;
+    color: #292929;
+    font-weight: bold;
+    position: relative;
+    height: 60px;
+    text-indent: 62px;
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li>a::after,
+.m_menu_wrap .m_menu_bottom .m_menu_list>li>a::before{
+    content: '';
+    background-color: #bbbbbb;
+    position: absolute;
+    top: 25px;
+    transition-duration: 0.3s;
+    height: 11px;
+    width: 2px;
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li>a::after{
+    right: 25px;
+    transform: rotate(45deg);
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li>a::before{
+    right: 32px;
+    transform: rotate(-45deg);
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li.atv>a::after{
+    transform: rotate(135deg);
+    background: #009223;
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li.atv>a::before{
+    transform: rotate(-135deg);
+    background: #009223;
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li>a img{
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* .m_menu_wrap .m_menu_bottom .m_menu_list>li:nth-child(2)> a::before{
+    background-image: url("../images/icon_app_gnb_howto.png");
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li:nth-child(3)> a::before{
+    background-image: url("../images/icon_app_gnb_news.png");
+ }
+.m_menu_wrap .m_menu_bottom .m_menu_list>li:nth-child(4)> a::before{
+    background-image: url("../images/icon_app_gnb_subway.png");
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li:nth-child(5)> a::before{
+    background-image: url("../images/icon_app_gnb_store.png");
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li:nth-child(6)> a::before{
+    background-image: url("../images/icon_app_gnb_customer.png");
+} */
+.m_menu_wrap .m_menu_bottom .m_menu_list>li .depth2{
+    width: 100%;
+    background: #fcfcfc;
+    /* border: 1px solid #000; */
+    padding: 25px 0;
+    box-sizing: border-box;
+    display: none;
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li .depth2 li{
+
+}
+.m_menu_wrap .m_menu_bottom .m_menu_list>li .depth2 li a{
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 32px;
+    color: #292929;
+    padding-left: 60px;
+    box-sizing: border-box;
+}
+header{
+    width: 100%;
+    height: 60px;
+    /* border-bottom: 1px solid #028b3b; */
+    position: relative;
+}
+header h1{
+    text-indent: -99999px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+header h1 a{
+    display: block;
+    width: 120px;
+    height: 25px;
+    background: url("../images/logo_app.png") no-repeat;
+    background-size: 120px 25px;
+
+}
+header .m_btn{ /* reset.css에서 초기화시켜야 함 */
+    text-indent: -99999px;
+    width: 21px;
+    height: 16px;
+    background: url("../images/icon_asidemenu.png") no-repeat;
+    background-size: 21px 16px;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    margin-top: -8px;
+    cursor: pointer;
+}
+/* ----------------------------------메인---------------------------------- */
+main {
+    width: 100%;
+}
+main .visual .swiper img{
+    width: 100%;
+}
+main .visual .swiper .swiper-pagination{
+    position: absolute;
+    left: 50%;
+    bottom:28px;
+    transform: translateX(-50%);
+    /* border: 1px solid red; */
+    padding: 10px 8px 0px;
+
+}
+main .visual .swiper .swiper-pagination-bullet{
+    width: 10px;height: 10px;
+    margin: 0 5px;
+    background: #fff;
+    opacity: 1;
+    transition-duration: 0.2s;
+
+
+}
+main .visual .swiper .swiper-pagination-bullet-active{
+    background: #ffce32;
+    width: 30px;height: 10px;
+    border-radius: 20px;
+
+}
+main .order{
+    width: 100%;
+    height: 330px;
+    background: #f6f6f6;
+    position: relative;
+    z-index: 100;
+}
+main .order .order_list{
+    width: 93%;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -15px;
+    border-radius: 26px 0 26px 0;
+    text-align: center;
+    padding: 37px 0;
+    box-sizing: border-box;
+}
+main .order .order_list li{
+    display: inline-block;
+    /* border: 1px solid #000; */
+    width: 40%;
+    position: relative;
+}
+main .order .order_list li::before{
+    content: "";
+    width: 1px;
+    height: 153px;
+    background: #eee;
+    position: absolute;
+    left: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+main .order .order_list li:first-child:before{
+    display: none;
+}
+
+main .order .order_list li a{
+
+
+}
+main .order .order_list li a h2{
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 12px;
+    position: relative;
+}
+main .order .order_list li a h2::before{
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: url("../images/bul_tit.png") no-repeat;
+    background-size: 30px;
+    position: absolute;
+    left: 50%;
+    margin-left: -58px;
+    top: -10px;
+    z-index: -1;
+}
+main .order .order_list li a h3{
+    color: #b2b7b3;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 18px;
+
+}
+main .order .order_list li a img{
+    width: 100px;
+}
+/* ----------------------------------푸터---------------------------------- */
+footer{
+    width: 100%;
+    background: #292929;
+}
+footer .footer_util{
+    display: flex;
+    height: 54px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+footer .footer_util li{
+    padding: 0 10px;
+    position: relative;
+    /* border: 1px solid red; */
+}
+footer .footer_util li::after{
+    content: "";
+    width: 1px;
+    height: 13px;
+    background: #3a3a3a;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -6.5px;
+}
+footer .footer_util li:first-child:after{
+    display: none;
+}
+footer .footer_util li:nth-child(2) a{
+    color: #d7dddd;
+    font-weight: 700;
+}
+footer .footer_util li a{
+    display: block;
+    height: 54px;
+    color: rgba(255,255,255,0.3);
+    font-size: 13px;
+    line-height: 54px;
+
+}
+footer .sns{
+    display: flex;
+    justify-content: center;
+    padding: 25px 0;
+}
+footer .sns li{
+    margin-right: 15px;
+
+}
+footer .sns li:last-child{
+    margin-right: 0;
+
+}
+
+footer .sns li a{
+    display: block;
+    text-indent: -99999px;
+    width: 45px;
+    height: 45px;
+    background: url("../images/icon_f_sns_ig.png") no-repeat;
+    background-size: 45px;
+
+}
+footer .sns li:last-child a{
+    background: url("../images/icon_f_sns_fb.png") no-repeat;
+    background-size: 45px;
+    
+}
+footer address{
+    text-align: center;
+    font-size: 13px;
+    line-height: 24px;
+}
+footer p{
+    font-size: 12px;
+    text-align: center;
+    line-height: 21px;
+    padding: 24px 0;
+    letter-spacing: -1px;
+}
