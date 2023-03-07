@@ -74,7 +74,7 @@ $(window).scroll(function (){
       ease: "expo", 
       scrollTrigger : {
         trigger: ".me_img",
-        // start: "top 80%",
+        start: "top 80%",
         // end: "bottom 10%",
         toggleActions: "play none none reverse",
   
